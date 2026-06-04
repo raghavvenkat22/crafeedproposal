@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Commercial Proposal: Saum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F1E8;
+    --cream-deep: #EDE7D9;
+    --paper: #FBF9F3;
+    --ink: #15171E;
+    --ink-soft: #2A2D3A;
+    --muted: #6C6F7E;
+    --hairline: #D8D2C2;
+    --hairline-soft: #E5DFCF;
+    --serif: 'Newsreader', 'Times New Roman', Georgia, serif;
+    --sans: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    font-weight: 400;
+    font-feature-settings: "ss01", "ss02";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 56px;
+  }
+
+  /* ---------- Top Rail ---------- */
+  .top-rail {
+    border-bottom: 1px solid var(--hairline);
+    background: var(--cream);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .top-rail-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 22px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .top-rail-right { color: var(--muted); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 130px 0 104px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 38px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(44px, 6.4vw, 88px);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    max-width: 16ch;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+  }
+  .hero-rule {
+    width: 100%;
+    height: 1px;
+    background: var(--hairline);
+    margin: 56px 0 34px;
+  }
+  .hero-sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(20px, 2.3vw, 27px);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 46ch;
+  }
+
+  /* ---------- Prepared block ---------- */
+  .prepared {
+    display: flex;
+    gap: 72px;
+    margin-top: 52px;
+    flex-wrap: wrap;
+  }
+  .prepared-item .label {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 9px;
+  }
+  .prepared-item .value {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  /* ---------- Section ---------- */
+  section.scope {
+    padding: 96px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .sec-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 56px;
+  }
+  .sec-spine {
+    position: relative;
+  }
+  .sec-numeral {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 60px;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+  .sec-spine-label {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    max-width: 14ch;
+  }
+  .sec-body h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(28px, 3.4vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 26px;
+    max-width: 22ch;
+  }
+  .sec-body h2 em { font-style: italic; }
+  .sec-lead {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    max-width: 60ch;
+    margin-bottom: 44px;
+  }
+  .sec-lead::first-letter {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 62px;
+    line-height: 0.78;
+    float: left;
+    padding: 6px 12px 0 0;
+    color: var(--ink);
+  }
+
+  /* ---------- Deliverables ---------- */
+  .deliverables { border-top: 1px solid var(--hairline-soft); }
+  .deliverable {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 22px;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--hairline-soft);
+    align-items: baseline;
+  }
+  .deliverable .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--muted);
+  }
+  .deliverable .d-title {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 7px;
+  }
+  .deliverable .d-title em { font-style: italic; }
+  .deliverable .d-desc {
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    line-height: 1.66;
+    max-width: 64ch;
+  }
+
+  /* ---------- Pricing ---------- */
+  section.pricing { padding: 100px 0 110px; border-bottom: 1px solid var(--hairline); }
+  .pricing-head {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 56px;
+    margin-bottom: 54px;
+  }
+  .pricing-head h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(28px, 3.4vw, 40px);
+    line-height: 1.14;
+    color: var(--ink);
+    margin-bottom: 20px;
+    max-width: 20ch;
+  }
+  .pricing-head h2 em { font-style: italic; }
+  .pricing-sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 48ch;
+  }
+
+  .ptable {
+    border-top: 1.5px solid var(--ink);
+    margin-left: 256px;
+  }
+  @media (max-width: 860px) { .ptable { margin-left: 0; } }
+  .prow {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 32px;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--hairline);
+    align-items: center;
+  }
+  .prow .tier {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  .prow .tier small {
+    display: block;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 5px;
+    letter-spacing: 0.01em;
+  }
+  .prow .fee {
+    text-align: right;
+    font-family: var(--serif);
+    font-size: 21px;
+    color: var(--ink);
+  }
+  .prow .fee small {
+    display: block;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 5px;
+  }
+  .prow.feature {
+    background: var(--ink);
+    color: var(--paper);
+    margin: 0 -28px;
+    padding: 34px 28px;
+    border-bottom: none;
+  }
+  .prow.feature .tier { font-size: 22px; }
+  .prow.feature .fee { font-size: 30px; }
+  .prow.feature .tier,
+  .prow.feature .fee { color: var(--paper); }
+  .prow.feature .tier small,
+  .prow.feature .fee small { color: rgba(251,249,243,0.62); }
+
+  .pnote {
+    margin-left: 256px;
+    margin-top: 26px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 60ch;
+  }
+  @media (max-width: 860px) { .pnote { margin-left: 0; } }
+  .pnote em { font-style: italic; font-family: var(--serif); color: var(--ink-soft); }
+
+  /* ---------- Closing ---------- */
+  section.closing { padding: 96px 0 104px; border-bottom: 1px solid var(--hairline); }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--hairline);
+    background: var(--cream-deep);
+    padding: 56px 0 60px;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .footer-mark {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 26px;
+    color: var(--ink);
+  }
+  .footer-meta {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.9;
+  }
+
+  @media (max-width: 860px) {
+    .container { padding: 0 28px; }
+    .top-rail-inner { padding: 18px 28px; }
+    .sec-grid, .pricing-head { grid-template-columns: 1fr; gap: 24px; }
+    .sec-numeral { font-size: 46px; }
+    .hero { padding: 80px 0 64px; }
+    .prow { grid-template-columns: 1fr; gap: 8px; }
+    .prow .fee { text-align: left; }
+    .prow.feature { margin: 0 -16px; padding: 24px 16px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Top Rail -->
+  <div class="top-rail">
+    <div class="top-rail-inner">
+      <span>Performance Marketing Studio</span>
+      <span class="top-rail-right">Commercial Proposal · MMXXVI</span>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="container">
+    <div class="hero">
+      <div class="hero-eyebrow">Prepared for Saum</div>
+      <h1>A commercial proposal for <em>performance marketing</em>.</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">A lead-led engine for Saum, drawing the right people to a landing page built to convert, and giving the creative the direction it deserves.</p>
+
+      <div class="prepared">
+        <div class="prepared-item">
+          <div class="label">Prepared for</div>
+          <div class="value">Saum</div>
+        </div>
+        <div class="prepared-item">
+          <div class="label">Scope</div>
+          <div class="value">Meta &amp; Google · Lead Generation</div>
+        </div>
+        <div class="prepared-item">
+          <div class="label">Engagement</div>
+          <div class="value">Monthly retainer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- I. Strategy & Lead Generation -->
+  <section class="scope">
+    <div class="container">
+      <div class="sec-grid">
+        <div class="sec-spine">
+          <div class="sec-numeral">I</div>
+          <div class="sec-spine-label">Strategy &amp; Lead Generation</div>
+        </div>
+        <div class="sec-body">
+          <h2>A lead engine, built to convert.</h2>
+          <p class="sec-lead">This is a lead-based setup. We draw qualified, intent-rich audiences from Meta and Google to a dedicated landing page, and we treat that page as the place the decision is actually made, not as an afterthought. Everything before it exists to deliver the right person; everything on it exists to convert them.</p>
+          <div class="deliverables">
+            <div class="deliverable">
+              <div class="num">i</div>
+              <div>
+                <div class="d-title">Audience &amp; intent mapping</div>
+                <div class="d-desc">Defining who we want and why they would act, built around Saum's elevated, considered audience rather than broad, cheap reach.</div>
+              </div>
+            </div>
+            <div class="deliverable">
+              <div class="num">ii</div>
+              <div>
+                <div class="d-title">Campaign build across Meta &amp; Google</div>
+                <div class="d-desc">A full lead-generation structure across Instagram, Facebook, and Google. Every campaign pointed at the landing page with a clear job to do.</div>
+              </div>
+            </div>
+            <div class="deliverable">
+              <div class="num">iii</div>
+              <div>
+                <div class="d-title">Landing page conversion strategy</div>
+                <div class="d-desc">The message, structure, and offer of the page where conversion happens, shaped and refined so traffic turns into enquiries, not bounces.</div>
+              </div>
+            </div>
+            <div class="deliverable">
+              <div class="num">iv</div>
+              <div>
+                <div class="d-title">Lead capture &amp; qualification</div>
+                <div class="d-desc">Capture flows built so the leads that reach you are warm and worth the conversation; quality over raw volume.</div>
+              </div>
+            </div>
+            <div class="deliverable">
+              <div class="num">v</div>
+              <div>
+                <div class="d-title">Goal-setting &amp; budget framework</div>
+                <div class="d-desc">Clear targets on cost per qualified lead, with a budget plan and forecast agreed before we begin.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- II. Creative Strategy & Execution -->
+  <section class="scope">
+    <div class="container">
+      <div class="sec-grid">
+        <div class="sec-spine">
+          <div class="sec-numeral">II</div>
+          <div class="sec-spine-label">Creative Strategy &amp; Execution</div>
+        </div>
+        <div class="sec-body">
+          <h2>Creative is the <em>pivotal</em> lever.</h2>
+          <p class="sec-lead">In a lead-based account, the creative is what decides whether a stranger stops, listens, and clicks. We don't just brief it. We strategise it and execute it, end to end. Getting the creative direction right is the single most important thing we will do for Saum, and we hold it to the brand's elevated, reverent register throughout.</p>
+          <div class="deliverables">
+            <div class="deliverable">
+              <div class="num">i</div>
+              <div>
+                <div class="d-title">Creative direction</div>
+                <div class="d-desc">A clear, performance-aware point of view that protects Saum's grace while still earning attention in a crowded feed, the foundation everything else is built on.</div>
+              </div>
+            </div>
+            <div class="deliverable">
+              <div class="num">ii</div>
+              <div>
+                <div class="d-title">Concepting &amp; execution</div>
+                <div class="d-desc">We take creative from idea to finished, launch-ready asset: concepts, copy, and production coordinated and delivered, not merely outlined.</div>
+              </div>
+            </div>
+            <div class="deliverable">
+              <div class="num">iii</div>
+              <div>
+                <div class="d-title">Hook, format &amp; placement testing</div>
+                <div class="d-desc">Structured testing of angles, formats, and placements to find what genuinely moves the audience, and to keep finding it as fatigue sets in.</div>
+              </div>
+            </div>
+            <div class="deliverable">
+              <div class="num">iv</div>
+              <div>
+                <div class="d-title">Landing page creative</div>
+                <div class="d-desc">Creative carried consistently from the ad through to the landing page, so the promise that earns the click is honoured by the page that converts it.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- III. Reporting & Optimisation -->
+  <section class="scope">
+    <div class="container">
+      <div class="sec-grid">
+        <div class="sec-spine">
+          <div class="sec-numeral">III</div>
+          <div class="sec-spine-label">Reporting &amp; Optimisation</div>
+        </div>
+        <div class="sec-body">
+          <h2>Measured, then sharpened.</h2>
+          <p class="sec-lead">A lead engine is never finished; it is tuned. You receive an honest, plain-language view of what spend returns, and we use it to refine relentlessly, moving budget toward what works and retiring what doesn't.</p>
+          <div class="deliverables">
+            <div class="deliverable">
+              <div class="num">i</div>
+              <div>
+                <div class="d-title">Tracking &amp; event setup</div>
+                <div class="d-desc">Conversion and lead-event tracking configured and quality-checked, so every number we report can be trusted.</div>
+              </div>
+            </div>
+            <div class="deliverable">
+              <div class="num">ii</div>
+              <div>
+                <div class="d-title">Weekly &amp; monthly reporting</div>
+                <div class="d-desc">A concise weekly read on momentum, and a fuller monthly deep-dive with insight and clear next steps, with full transparency on spend and cost per lead.</div>
+              </div>
+            </div>
+            <div class="deliverable">
+              <div class="num">iii</div>
+              <div>
+                <div class="d-title">Continuous optimisation</div>
+                <div class="d-desc">Always-on testing across audience, creative, and landing page, with budget steered toward the best-performing combinations.</div>
+              </div>
+            </div>
+            <div class="deliverable">
+              <div class="num">iv</div>
+              <div>
+                <div class="d-title">Scaling &amp; strategy reviews</div>
+                <div class="d-desc">Disciplined scaling of what works, and a regular step back to reassess direction against the season ahead.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IV. Commercials -->
+  <section class="pricing">
+    <div class="container">
+      <div class="pricing-head">
+        <div class="sec-spine">
+          <div class="sec-numeral">IV</div>
+          <div class="sec-spine-label">Commercials</div>
+        </div>
+        <div>
+          <h2>A single, <em>flat</em> monthly fee.</h2>
+          <p class="pricing-sub">No spend slabs, no percentage of ad spend. One clear retainer for the entire engagement: strategy, lead generation, creative, and optimisation.</p>
+        </div>
+      </div>
+
+      <div class="ptable">
+        <div class="prow feature">
+          <div class="tier">Monthly management fee<small>Strategy · Lead generation · Creative · Optimisation</small></div>
+          <div class="fee">₹80,000<small>+ GST / month</small></div>
+        </div>
+      </div>
+
+      <p class="pnote">The fee is a flat monthly retainer, exclusive of ad spend. <em>Ad spend is billed directly by Saum to the platforms.</em> Engagement is month-to-month with a 30-day notice period.</p>
+    </div>
+  </section>
+
+  <!-- V. In Closing -->
+  <section class="closing">
+    <div class="container">
+      <div class="sec-grid">
+        <div class="sec-spine">
+          <div class="sec-numeral">V</div>
+          <div class="sec-spine-label">In Closing</div>
+        </div>
+        <div class="sec-body">
+          <h2>When you're ready.</h2>
+          <p class="sec-lead">We'd be glad to build this engine for Saum, bringing the right people to the page, give the creative the direction it deserves, and turn considered interest into qualified leads. When you're ready to begin, we are.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-mark">Crafeed</div>
+        <div class="footer-meta">
+          Performance Marketing Studio · Pune<br>
+          www.crafeed.com<br>
+          Commercial Proposal · MMXXVI
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
